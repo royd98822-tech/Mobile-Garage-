@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Garage | Sundernagar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;     /* Modern Blue */
+            --secondary: #f59e0b;   /* Catchy Orange */
+            --whatsapp: #25D366;    /* WhatsApp Green */
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        header { 
+            background: linear-gradient(135deg, var(--primary), #1d4ed8); 
+            color: white; padding: 25px; text-align: center; 
+            font-size: 26px; font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+
+        .hero { 
+            padding: 80px 20px; text-align: center; 
+            background: linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8)), url("https://images.unsplash.com/photo-1510557880182-3b6f0d4e4c6b");
+            background-size: cover; background-position: center; color: white;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .btn { 
+            padding: 15px 30px; border: none; border-radius: 50px; cursor: pointer; margin: 10px;
+            font-weight: 600; transition: 0.3s; color: white;
+        }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 15px rgba(0,0,0,0.2); }
+        .call { background: var(--secondary); }
+        .whatsapp { background: var(--whatsapp); }
+
+        .section { padding: 50px 20px; max-width: 1000px; margin: auto; animation: fadeIn 1s ease-out; }
+        
+        h2 { text-align: center; margin-bottom: 40px; color: var(--primary); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+        .card { 
+            background: white; padding: 25px; border-radius: 20px; text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.4s;
+            border-bottom: 4px solid var(--primary);
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 25px rgba(0,0,0,0.1); }
+
+        .review-card { background: #eff6ff; border-left: 5px solid var(--primary); border-bottom: none; text-align: left; }
+
+        .form-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 5px solid var(--primary); }
+        input, select { width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #e2e8f0; border-radius: 10px; box-sizing: border-box; }
+
+        footer { text-align: center; padding: 40px; background: var(--dark); color: white; }
+    </style>
+</head>
+<body>
+
+<header>📱 MOBILE GARAGE</header>
+
+<div class="hero">
+    <h1>Expert Mobile Repair</h1>
+    <p>Premium Doorstep Service in Sundernagar</p>
+    <a href="tel:8629860324"><button class="btn call">📞 Call Now</button></a>
+    <a href="https://wa.me/918629860324"><button class="btn whatsapp">💬 WhatsApp</button></a>
+</div>
+
+<div class="section">
+    <h2>🔧 All Repair Services</h2>
+    <div class="grid">
+        <div class="card"><h3>Screen Repair</h3><button class="btn" style="background:var(--primary)" onclick="openForm('Screen Repair')">Book Now</button></div>
+        <div class="card"><h3>Battery Replace</h3><button class="btn" style="background:var(--primary)" onclick="openForm('Battery')">Book Now</button></div>
+        <div class="card"><h3>Charging Port</h3><button class="btn" style="background:var(--primary)" onclick="openForm('Charging')">Book Now</button></div>
+        <div class="card"><h3>Speaker / Mic</h3><button class="btn" style="background:var(--primary)" onclick="openForm('Speaker')">Book Now</button></div>
+        <div class="card"><h3>Camera Repair</h3><button class="btn" style="background:var(--primary)" onclick="openForm('Camera')">Book Now</button></div>
+        <div class="card"><h3>Software Fix</h3><button class="btn" style="background:var(--primary)" onclick="openForm('Software')">Book Now</button></div>
+        <div class="card"><h3>Water Damage</h3><button class="btn" style="background:var(--primary)" onclick="openForm('Water')">Book Now</button></div>
+        <div class="card"><h3>Back Panel/Glass</h3><button class="btn" style="background:var(--primary)" onclick="openForm('BackPanel')">Book Now</button></div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>⭐ Customer Reviews</h2>
+    <div class="grid">
+        <div class="card review-card">
+            <p>"Best service in Sundernagar! Screen fix ho gaya bas 1 ghante mein."</p>
+            <p><strong>- Rahul Kumar</strong></p>
+        </div>
+        <div class="card review-card">
+            <p>"Very professional. Pickup aur drop ki service bahut achi hai."</p>
+            <p><strong>- Anita Sharma</strong></p>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="booking">
+    <div class="form-box" id="formBox" style="display:none;">
+        <h2>📋 Book Your Service</h2>
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="tel" id="phone" placeholder="Mobile Number">
+        <input type="text" id="address" placeholder="Pick-up Address">
+        <select id="service">
+            <option value="Screen Repair">Screen Repair</option>
+            <option value="Battery">Battery Replacement</option>
+            <option value="Charging">Charging Issue</option>
+            <option value="Speaker">Speaker / Mic</option>
+            <option value="Camera">Camera Repair</option>
+            <option value="Software">Software Fix</option>
+            <option value="Water">Water Damage</option>
+            <option value="BackPanel">Back Panel/Glass</option>
+        </select>
+        <button class="btn whatsapp" style="width:100%" onclick="sendWhatsApp()">Submit & Book</button>
+    </div>
+</div>
+
+<footer>
+    <h3>Thank You for Visiting Our Website! ❤️</h3>
+    <p>Mobile Garage | Sundernagar</p>
+</footer>
+
+<script>
+    function openForm(service){
+        document.getElementById("formBox").style.display = "block";
+        document.getElementById("service").value = service;
+        document.getElementById("booking").scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function sendWhatsApp(){
+        let n = document.getElementById("name").value;
+        let p = document.getElementById("phone").value;
+        let a = document.getElementById("address").value;
+        let s = document.getElementById("service").value;
+        if(!n || !p || !a) { alert("Please fill all details!"); return; }
+        
+        let msg = `New Booking Request:%0AName: ${n}%0APhone: ${p}%0AService: ${s}%0AAddress: ${a}`;
+        window.open("https://wa.me/918629860324?text=" + msg, '_blank');
+    }
+</script>
+
+</body>
+</html>
